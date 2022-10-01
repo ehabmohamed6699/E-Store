@@ -1,5 +1,9 @@
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Body from "./components/body/Body";
+import Favs from "./components/favs/Favs";
+
 import Cart from './components/Cart/cart';
 import Checkout from './components/Checkout/Checkout';
 import Navbar from './components/navbar/navbar';
@@ -42,6 +46,9 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Route path="/" exact component={Body} />
+      <Route path="/home" component={Body} />
+      <Route path="/favourites" component={Favs} />
       <Route path="/cart" exact component = {Cart}/>
       <Route path="/checkout" exact component = {Checkout}/>
     </Router>
