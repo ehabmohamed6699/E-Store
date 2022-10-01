@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Cart from './components/Cart/cart';
 import Checkout from './components/Checkout/Checkout';
+import Navbar from './components/navbar/navbar';
 
 function App() {
   function rate(rating){
@@ -40,6 +41,7 @@ function App() {
   }
   return (
     <Router>
+      <Navbar />
       <Route path="/cart" exact component = {Cart}/>
       <Route path="/checkout" exact component = {Checkout}/>
     </Router>

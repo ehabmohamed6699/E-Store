@@ -1,4 +1,7 @@
 let initialState = {
+    lang:'EN',
+    loader:false,
+    favorties:[],
     checkout: {
         cart: [],
         subTotal: 0
