@@ -1,0 +1,52 @@
+.row{
+    margin-bottom: 20px;
+}
+
+.checkout-btn{
+    width: 200px !important;
+    height: 50px;
+    border-radius: 25px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background-color: #ff2020 !important ;
+    color: white;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.checkout-btn:hover{
+    background-color: #dc1c1c !important;
+    color: white;
+    text-decoration: none;
+}
+
+.bill{
+    background-color: #eee;
+}
+
+.title{
+    font-size: 1.2em;
+    position: relative;
+}
+
+.title::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #aaa;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+}
+ul{
+    padding: 0 !important;
+}
+ul li{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-decoration: none !important;
+}

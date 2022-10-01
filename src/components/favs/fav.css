@@ -1,0 +1,76 @@
+.cart-whishlist {
+  font-family: "Jost";
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 0.3rem 0.2rem rgba(100, 100, 100, 0.267); */
+  padding: 0.5rem;
+  padding-right: 3rem;
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+.img-col {
+  display: flex;
+  align-items: center;
+}
+
+.img-col img {
+  width: 7rem;
+  display: inline;
+  margin-right: 2rem;
+}
+
+.cart-name {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #333;
+}
+
+.cart-name:hover {
+  color: #ff2020;
+}
+
+.btn-whishlist {
+  /* display: inline; */
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: #f3ead8;
+  transition: all 0.3s;
+  justify-self: end;
+  border-radius: 1000px;
+}
+
+.btn-whishlist:hover {
+  background-color: #dbd3c2;
+}
+
+.price-before-discount {
+  color: #5e5a55;
+}
+
+.price-after-discount {
+  color: #cebd9c;
+  text-decoration: line-through;
+}
+
+@media (max-width: 950px) {
+  .cart-whishlist {
+    grid-template-columns: 5fr 1fr 1fr 2fr;
+  }
+}
+@media (max-width: 760px) {
+  .cart-whishlist {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-whishlist {
+    justify-self: stretch;
+  }
+}
