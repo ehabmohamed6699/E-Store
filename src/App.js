@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Cart from './components/Cart/cart';
 import Checkout from './components/Checkout/Checkout';
+import Products from './components/Products/Products';
+
 
 function App() {
   function rate(rating){
@@ -38,10 +40,26 @@ function App() {
       })}
     </div>)
   }
+
+  function intercept(...items){
+    let setsOfItems = [];
+    for (let i of items){
+      setsOfItems.push(new Set(i));
+    }
+    let intersection = new Set(setsOfItems[0])
+
+    for (let i = 1; i < setsOfItems.length - 1; i++){
+      intersection = new Set([...intersection].filter(x => setsOfItems[i+1].has(x)))
+    }
+    return Array.from(intersection);
+    
+  }
   return (
     <Router>
       <Route path="/cart" exact component = {Cart}/>
       <Route path="/checkout" exact component = {Checkout}/>
+      {/* {console.log(intercept([1,4,5,6,9],[4,6,8,9,13],[6,9,13,20,21]))} */}
+      <Route path="/products" exact component={Products}/>
     </Router>
   );
 }
