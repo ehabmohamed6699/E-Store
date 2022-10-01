@@ -7,10 +7,11 @@ import { BsLinkedin ,BsFillPersonFill} from "react-icons/bs";
 import { IoLogoInstagram,IoLogoFacebook } from "react-icons/io5";
 import { AiFillYoutube ,AiOutlineShoppingCart } from "react-icons/ai";
 import Badge from 'react-bootstrap/Badge';
-
+import { useEffect } from "react";
 import SearchBar from "../Search/SearchBar";
 import BookData from "../Search/Data.json";
 import { HashLink } from "react-router-hash-link";
+import { useSelector } from "react-redux";
 
 
 export default function Navbar(){
@@ -55,7 +56,7 @@ export default function Navbar(){
     return (
         <>
         
-            <div class="topnav">
+            {/* <div class="topnav">
                             {Topnavbar.map((item) => (
                     <a><NLink data={item.data} content={item.content} /></a>))}
                 <div class="topnav-right">
@@ -79,15 +80,56 @@ export default function Navbar(){
                 <div class="p-2  flex-fill">
                     <a><SearchBar placeholder="Search..." data={BookData} /></a>
                     <a href="/"><BsFillPersonFill style={{ fontSize: '30px' }} /></a>
-                    {/* <div className="btn__container">
-                        <button className="control__btn" onClick={increase}>+</button>
-                    </div> */}
                     <HashLink to="/cart"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
                         <span className="counter__output">{counter}</span>
                     </Badge></HashLink>
                 </div>
             </div>
 
+            <div class="d-flex justify-content-center " id="alert">
+                <strong>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</strong ><a href="/" class="alert-link">Shop Now</a>
+            </div> */}
+            <div class="topnav d-flex align-items-center justify-content-between">
+                <div>{Topnavbar.map((item) => (
+                    <a><NLink data={item.data} content={item.content} /></a>))}</div>
+                <div class="topnav-right">
+                    {Topnavbar_right.map((items) => (
+                        <a><NLink data={items.data1} content={items.content1} /></a>))}
+                </div>
+            </div>
+
+            <hr></hr>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between w-100" id="navv">
+                <h1 className="p-2 mr-2">E-Store</h1>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >         
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex align-items-center gap-1 gap-lg-3 ml-2">
+                    {secondnavbar.map((item) => (
+                        <HashLink to={item.data}>{item.content}</HashLink>
+                    ))}
+                </ul>
+                <div class="p-2  ">
+                    <a><SearchBar placeholder="Search..." data={BookData} /></a>
+                    <a href="/"><BsFillPersonFill style={{ fontSize: '30px' }} /></a>
+                    <HashLink to="/cart"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
+                        <span className="counter__output">{counter}</span>
+                    </Badge></HashLink>
+                </div>
+                
+                {/* <button className="btn btn-primary" onClick={togglelang}>{lang}</button> */}
+                </div>
+                
+            </nav>
             <div class="d-flex justify-content-center " id="alert">
                 <strong>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</strong ><a href="/" class="alert-link">Shop Now</a>
             </div>

@@ -63,17 +63,17 @@ function ProdDetails(){
     return(
         <>
         <div className="header">
-                   <h1>Product Details</h1>
-                   <ol class="breadcrumb justify-content-center">  
-                   <li><a href="/home">Home </a></li>
-                   <li>
-                   <a href="/productDetails">Product Details</a>
-                   </li>
-                   </ol>
-                 </div>
+          <h1>Product Details</h1>
+          <ol class="breadcrumb justify-content-center">  
+          <li><a href="/home">Home </a></li>
+          <li>
+          <a href="/productDetails">Product Details</a>
+          </li>
+          </ol>
+        </div>
      <div className="container">
-      <div class="wrapper">
-        <div class="main_card">
+      <div class="wrapper ">
+        <div class="main_card d-flex align-items-center">
         <div class="card_right">
             <div class="img_container">
               <img 

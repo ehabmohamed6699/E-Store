@@ -169,9 +169,9 @@ function Products() {
 
     return (
         <>
-            <div className="container-fuild p-3 my-3">
+            <div className="container-fuild py-3 my-3 mx-0">
                 <div className="row">
-                    <div className="col-sm-2" >
+                    <div className="col-sm-2 mx-0 mx-md-4 d-flex flex-column align-items-center" >
 
                         <div className="CategoryFilter">
                             <Dropdown>
@@ -223,7 +223,7 @@ function Products() {
 
                         </div>
 
-                        <div className="BrandFilter">
+                        <div className="BrandFilter d-flex flex-column align-items-center">
                             <h5>Filter by Brand</h5>
                             <Form className="brand">
                                 {['checkbox'].map((type) => (
@@ -412,7 +412,7 @@ function Products() {
                             </Form>
                         </div>
 
-                        <div className="RateFilter">
+                        <div className="RateFilter  d-flex flex-column align-items-center">
                             <h5>Sort by Rating</h5>
                             <Form className="rate">
                                 {['radio'].map((type) => (
@@ -446,10 +446,11 @@ function Products() {
 
                     <div className="col-xl-9">
                         <div className="row">
-
+                        
                             {filter.map((p) => (
+                                <div className="col-12 col-md-6 col-lg-3 d-flex mb-4 justify-content-center">
                                 <div
-                                    className="card col-3"
+                                    className="card "
                                     style={{ width: 300, marginBottom: 10, marginRight: 3 }}                                >
                                     <img class="card-img-top"
                                         src={p.images[0]}
@@ -460,15 +461,16 @@ function Products() {
 
                                     </div>
                                 </div>
+                                </div>
                             ))}
                             {
                                 console.log(result)
                             }
                         </div>
-
+                        </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+            
         </>
     );
 }

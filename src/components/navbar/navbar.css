@@ -3,6 +3,12 @@
     overflow: hidden;
 }
 
+.fit{
+  /* display: flex; */
+  /* width: 200px !important; */
+  position: relative;
+}
+
 .topnav a {
     float: left;
     color: #000000;
