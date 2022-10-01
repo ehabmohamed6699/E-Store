@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const NavLink = (props) => {
   console.log(props);
@@ -7,9 +7,9 @@ const NavLink = (props) => {
   return (
     <>
       <div className="nav-item">
-        <Link className="nav-link" to={props.data}>
+        <HashLink className="nav-link" to={props.data}>
           {props.content}
-        </Link>
+        </HashLink>
       </div>
     </>
   );

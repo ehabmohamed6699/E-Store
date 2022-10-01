@@ -48,6 +48,12 @@ tbody tr td:nth-child(1)::after{
     border: 1px solid #eee;
 }
 
+.titled{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
 .del{
     background-color: transparent;
     border: none;

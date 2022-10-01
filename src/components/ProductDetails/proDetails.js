@@ -1,14 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { setFavorite } from './store/action'
+import { addToCart, addToFav } from "../../store/action";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import ReactStars from 'react-stars'
-import { FaStar, FaStarHalf } from 'react-icons/fa';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import StarHalfIcon from '@mui/icons-material/StarHalf';
+
 import { FaHeart } from 'react-icons/fa';
 import "./prodDetails.css";
 
@@ -16,7 +11,7 @@ function ProdDetails(){
 
   let params = useParams();
   let [product, setProduct] = useState({});
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
 
   function rate(rating){
     let andHalf = (rating % 1) > 0.3 && (rating % 1) < 0.7? true: false;
@@ -104,10 +99,10 @@ function ProdDetails(){
                  <br></br><br></br>
                  <div class="row"> 
                  <div class="col-md-auto">
-                 <button onClick={()=>dispatch(setFavorite(product))}>Add To Carts</button>
+                 <button onClick={()=>dispatch(addToCart(product))}>Add To Carts</button>
                 </div>
           <div class="col-md-auto">
-          <button class="btn1" onClick={()=>dispatch(setFavorite(product))}>
+          <button class="btn1" onClick={()=>dispatch(addToFav(product))}>
                  <FaHeart/>
                 </button>
           </div>

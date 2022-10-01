@@ -7,9 +7,10 @@ import { BsLinkedin ,BsFillPersonFill} from "react-icons/bs";
 import { IoLogoInstagram,IoLogoFacebook } from "react-icons/io5";
 import { AiFillYoutube ,AiOutlineShoppingCart } from "react-icons/ai";
 import Badge from 'react-bootstrap/Badge';
-import Carousel from "react-bootstrap/Carousel";
+
 import SearchBar from "../Search/SearchBar";
 import BookData from "../Search/Data.json";
+import { HashLink } from "react-router-hash-link";
 
 
 export default function Navbar(){
@@ -34,12 +35,11 @@ export default function Navbar(){
     ]);
 
     let [secondnavbar, setnavelements2] = useState([
-        { data: "/Home", content: "Home" },
-        { data: "/Men", content: "Men" },
-        { data: "/Women", content: "Women" },
-        { data: "/Electronics", content: "Electronics" },
-        { data: "/Contact", content: "Contact" },
-        { data: "/Baby", content: "Baby" },
+        { data: "/home", content: "Home" },
+        {data: "/favourites", content:"Wishlist"},
+        { data: "/products", content: "Products" },
+        { data: "/home#trending", content: "Trend" },
+        { data: "/home#best-selling", content: "Best Selling"}
     ]);
 
     const [counter, setCounter] = useState(0);
@@ -82,30 +82,16 @@ export default function Navbar(){
                     {/* <div className="btn__container">
                         <button className="control__btn" onClick={increase}>+</button>
                     </div> */}
-                    <a href="/"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
+                    <HashLink to="/cart"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
                         <span className="counter__output">{counter}</span>
-                    </Badge></a>
+                    </Badge></HashLink>
                 </div>
             </div>
 
             <div class="d-flex justify-content-center " id="alert">
                 <strong>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</strong ><a href="/" class="alert-link">Shop Now</a>
             </div>
-            <Carousel className="Carousel">
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://img.freepik.com/free-photo/surprised-happy-girl-pointing-left-recommend-product-advertisement-make-okay-gesture_176420-20191.jpg?w=996&t=st=1664147388~exp=1664147988~hmac=591e5e7181cc47d1a7d328fd0a625b4ce61cb0baa1fb669f77710541c29e2be0"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://img.freepik.com/free-photo/portrait-handsome-smiling-young-man-model-wearing-casual-summer-pink-clothes-fashion-stylish-man-posing_158538-5355.jpg?w=900&t=st=1664147445~exp=1664148045~hmac=7d7ee1c6b203295c742fa5b88f7ea2be4b477f58db12dee9fee3ed4be1f4a207"
-                    />
-                </Carousel.Item>
-            </Carousel>
-
+            
         </>
 
     )

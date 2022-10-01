@@ -1,3 +1,9 @@
+export default function setCheckout(checkout){
+  return{
+      type: 'SET_Checkout',
+      payload: checkout
+  }
+}
 
 export function addToFav(fav) {
   return {
@@ -18,9 +24,4 @@ export function addToCart(cartItem) {
     type: "SET_Cart",
     payload: cartItem,
   };
-export default function setCheckout(checkout){
-    return{
-        type: 'SET_Checkout',
-        payload: checkout
-    }
 }
