@@ -9,26 +9,11 @@ export let initialState = {
     subTotal: 0
 }
 };
-export default function reducer(state = initialState, action){
-  switch(action.type){
-      case 'SET_Checkout':
-          return {
-              ...state, checkout: action.payload
-          }
-      
-      default:
-          return state;
-  }
 
-<<<<<<< HEAD
-};
-export default function favouriteReducer(state = initialState, action) {
-=======
 
 
 
 export default function reducer(state = initialState, action) {
->>>>>>> d6b5e0b97d3d24e42348d0817a1d39326f4ac85d
   switch (action.type) {
     case "SET_Favourite":
       let isInFavourite = state.favourites.findIndex(
@@ -68,12 +53,4 @@ export default function reducer(state = initialState, action) {
     default:
       return state;
   }
-
-}
 };
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d6b5e0b97d3d24e42348d0817a1d39326f4ac85d
