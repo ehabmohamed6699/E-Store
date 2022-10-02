@@ -89,16 +89,6 @@ export default function Navbar(){
             <div class="d-flex justify-content-center " id="alert">
                 <strong>Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</strong ><a href="/" class="alert-link">Shop Now</a>
             </div> */}
-            <div class="topnav d-flex align-items-center justify-content-between">
-                <div>{Topnavbar.map((item) => (
-                    <a><NLink data={item.data} content={item.content} /></a>))}</div>
-                <div class="topnav-right">
-                    {Topnavbar_right.map((items) => (
-                        <a><NLink data={items.data1} content={items.content1} /></a>))}
-                </div>
-            </div>
-
-            <hr></hr>
             <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between w-100" id="navv">
                 <h1 className="p-2 mr-2">E-Store</h1>
                 <button
@@ -112,13 +102,13 @@ export default function Navbar(){
                 >         
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse justify-content-evenly align-items-center" id="navbarNav">
                 <ul class="navbar-nav d-flex align-items-center gap-1 gap-lg-3 ml-2">
                     {secondnavbar.map((item) => (
                         <HashLink to={item.data}>{item.content}</HashLink>
                     ))}
                 </ul>
-                <div class="p-2  ">
+                <div class="p-2  d-flex justify-content-center">
                     <a><SearchBar placeholder="Search..." data={BookData} /></a>
                     <a href="/"><BsFillPersonFill style={{ fontSize: '30px' }} /></a>
                     <HashLink to="/cart"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
