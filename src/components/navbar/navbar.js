@@ -1,17 +1,14 @@
 import React, {useState, useRef } from "react";
 import "./navbar.css";
-import NLink from "./link"
 import { useDispatch } from "react-redux";
 import { VscTwitter } from "react-icons/vsc";
 import { BsLinkedin ,BsFillPersonFill} from "react-icons/bs";
 import { IoLogoInstagram,IoLogoFacebook } from "react-icons/io5";
 import { AiFillYoutube ,AiOutlineShoppingCart } from "react-icons/ai";
 import Badge from 'react-bootstrap/Badge';
-import { useEffect } from "react";
 import SearchBar from "../Search/SearchBar";
-import BookData from "../Search/Data.json";
+import Data from "../Search/Data.json";
 import { HashLink } from "react-router-hash-link";
-import { useSelector } from "react-redux";
 
 
 export default function Navbar(){
@@ -55,7 +52,6 @@ export default function Navbar(){
 
     return (
         <>
-        
             {/* <div class="topnav">
                             {Topnavbar.map((item) => (
                     <a><NLink data={item.data} content={item.content} /></a>))}
@@ -109,14 +105,12 @@ export default function Navbar(){
                     ))}
                 </ul>
                 <div class="p-2  d-flex justify-content-center">
-                    <a><SearchBar placeholder="Search..." data={BookData} /></a>
-                    <a href="/"><BsFillPersonFill style={{ fontSize: '30px' }} /></a>
+                    <a><SearchBar placeholder="Search..." data={Data} /></a>
+                    <a href="/login"><BsFillPersonFill style={{ fontSize: '30px' }} /></a>
                     <HashLink to="/cart"><AiOutlineShoppingCart style={{ fontSize: '30px' }} /><Badge bg="danger" text="wight">
                         <span className="counter__output">{counter}</span>
                     </Badge></HashLink>
-                </div>
-                
-                {/* <button className="btn btn-primary" onClick={togglelang}>{lang}</button> */}
+                </div>                
                 </div>
                 
             </nav>

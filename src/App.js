@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // <<<<<<< HEAD
 import React from 'react';
 
@@ -14,20 +14,27 @@ import Checkout from './components/Checkout/Checkout';
 import Products from './components/Products/Products';
 import Navbar from './components/navbar/navbar';
 import ProdDetails from "./components/ProductDetails/proDetails";
+import Footer from "./components/footer/footer"
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Route path={"/signup"} component={Signup}/>
-      <Route path={"/login"} component={Login}/>
-      <Route path="/" exact component={Body} />
-      <Route path="/home" component={Body} />
-      <Route path="/favourites" component={Favs} />
-      <Route path="/cart" exact component = {Cart}/>
-      <Route path="/checkout" exact component = {Checkout}/>
-      <Route path="/products" exact component={Products}/>
-      <Route path="/productDetails/:id" exact component={ProdDetails}/>
+      <Switch>
+        <Route path={"/login"} component={Login} />
+        <Route path={"/signup"} component={Signup} />
+
+        <div>
+          <Navbar />
+          <Route path="/" exact component={Body} />
+          <Route path="/home" component={Body} />
+          <Route path="/favourites" component={Favs} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/products" exact component={Products} />
+          <Route path="/productDetails/:id" exact component={ProdDetails} />
+          <Footer />
+        </div>
+      </Switch>
     </Router>
   );
 }

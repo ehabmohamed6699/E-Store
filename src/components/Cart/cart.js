@@ -8,6 +8,7 @@ import setCheckout from "../../store/action";
 
 export default function Cart(){
     
+    
     const dispatch = useDispatch();
     function sendToCheckout(){
         let check = {
