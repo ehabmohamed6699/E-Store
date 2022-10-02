@@ -1,24 +1,24 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import React from 'react';
 
 import Signup from './components/signup/signup';
 import Login from './components/login/login';
-=======
+// =======
 import Body from "./components/body/Body";
 import Favs from "./components/favs/Favs";
 
 import Cart from './components/Cart/cart';
 import Checkout from './components/Checkout/Checkout';
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import Products from './components/Products/Products';
 
-=======
+// =======
 import Navbar from './components/navbar/navbar';
->>>>>>> missing-packs
->>>>>>> 15334239e3b99f437dcacdb748553bb7de3137b5
+// >>>>>>> missing-packs
+// >>>>>>> 15334239e3b99f437dcacdb748553bb7de3137b5
 
 function App() {
   function rate(rating){
@@ -74,12 +74,12 @@ function App() {
    
     
     <Router>
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
       <Route path={"/signup"} component={Signup}/>
       <Route path={"/login"} component={Login}/>
 
        {/* <Signup/> */}
-=======
+{/* ======= */}
       <Navbar />
       <Route path="/" exact component={Body} />
       <Route path="/home" component={Body} />
@@ -88,7 +88,7 @@ function App() {
       <Route path="/checkout" exact component = {Checkout}/>
       {/* {console.log(intercept([1,4,5,6,9],[4,6,8,9,13],[6,9,13,20,21]))} */}
       <Route path="/products" exact component={Products}/>
->>>>>>> 15334239e3b99f437dcacdb748553bb7de3137b5
+{/* >>>>>>> 15334239e3b99f437dcacdb748553bb7de3137b5 */}
     </Router>
   );
 }

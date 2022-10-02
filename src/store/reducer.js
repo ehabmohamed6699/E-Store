@@ -4,7 +4,18 @@ export let initialState = {
   favourites: [],
   cartList: [],
 };
+export default function reducer(state = initialState, action){
+  switch(action.type){
+      case 'SET_Checkout':
+          return {
+              ...state, checkout: action.payload
+          }
+      
+      default:
+          return state;
+  }
 
+};
 export default function favouriteReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_Favourite":
@@ -49,16 +60,5 @@ let initialState = {
         subTotal: 0
     }
 }
+};
 
-export default function reducer(state = initialState, action){
-    switch(action.type){
-        case 'SET_Checkout':
-            return {
-                ...state, checkout: action.payload
-            }
-        
-        default:
-            return state;
-    }
-
-}
