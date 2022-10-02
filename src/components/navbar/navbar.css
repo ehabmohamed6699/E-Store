@@ -3,6 +3,12 @@
     overflow: hidden;
 }
 
+.fit{
+  /* display: flex; */
+  /* width: 200px !important; */
+  position: relative;
+}
+
 .topnav a {
     float: left;
     color: #000000;
@@ -53,6 +59,7 @@
     padding: 10px;
     background-color: #000000; 
     color: white;
+    font-size: 0.9em;
   }
 
   h1 {

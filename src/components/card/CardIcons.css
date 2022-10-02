@@ -1,3 +1,8 @@
+.card-icons{
+  display: flex;
+  justify-content: center;
+}
+
 .card-icons button {
   border: none;
   background: none;

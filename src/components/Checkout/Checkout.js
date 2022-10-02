@@ -104,7 +104,7 @@ export default function Checkout(){
         {console.log(Math.floor(5))}
         <div className="container-fluid top-title d-flex flex-column align-items-center justify-content-center py-4 mb-5">
             <p className="display-6 text-dark">Checkout</p>
-            <span className="text-secondary"><Link to="#" className="text-secondary">Home</Link> | <Link to="#" className="text-secondary">Cart</Link></span>
+            <span className="text-secondary d-flex gap-2"><Link to="/home" className="text-secondary">Home</Link> | <Link to="/checkout" className="text-secondary">Checkout</Link></span>
         </div>
         {
             fillCheckout()
