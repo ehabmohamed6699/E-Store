@@ -55,15 +55,15 @@ function Footer() {
                             <div className='contact-caption'>
                                 <form action="http://localhost:3000/#">
                                 <input type="text" placeholder="Enter your email"/>
-                                <button className="contact-btn">Submit</button>
+                                <button className="contact-btn text-light">Submit</button>
                                 </form>   
                             </div>
                             </div>
                             <div className="col-xxl-2 col-xl-2 col-lg-4">       
                             <div className="footer-social">
-                                <a href="http://localhost:3000/#"><FaFacebook className="icon"/></a>
-                                <a href="http://localhost:3000/#"><FaInstagram className="icon"/></a>
-                                <a href="http://localhost:3000/#"><FaYoutube className="icon"/></a>
+                                <a href="http://localhost:3000/#" className="text-light"><FaFacebook className="icon"/></a>
+                                <a href="http://localhost:3000/#" className="text-light"><FaInstagram className="icon"/></a>
+                                <a href="http://localhost:3000/#" className="text-light"><FaYoutube className="icon"/></a>
                             </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ function Footer() {
                             <div className="single-footer-caption mb-50">
                                 <div className="single-footer-caption mb-20">
                                     <div className="footer-logo mb-35">
-                                        <a href="/home">                                  
+                                        <a href="/home" className="text-light">                                  
                                         <h1 className="p-2 mr-2">E-Store</h1>                                        </a>
                                     </div>
                                 </div>

@@ -164,7 +164,7 @@ function Login() {
               </div>
               <div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 d-flex justify-content-lg-end justify-content-lg-end justify-content-md-start">
                 <Button variant="primary" type="submit" onClick={handleSubmit} className="w-50 " style={{ background: "rgb(233, 236, 38)", color: "black", border: "none" }}>
-                  Submit
+                  Log In
 
                 </Button>
               </div>

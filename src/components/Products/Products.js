@@ -11,6 +11,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { useSelector, useDispatch } from "react-redux";
 import initialState from "../../store/reducer";
 import { addToFav, addToCart } from "../../store/action";
+import useStateWithCallback from 'use-state-with-callback';
 
 function Products() {
   const dispatch = useDispatch();
@@ -30,17 +31,15 @@ function Products() {
   const brand_bool = false;
   let [brand, setbrand] = useState(prodcts);
 
-  // function intercept(...items) {
-  //     let setsOfItems = [];
-  //     for (let i of items) {
-  //         setsOfItems.push(new Set(i));
-  //     }
-  //     let intersection = new Set(setsOfItems[0])
-  //     for (let i = 1; i < setsOfItems.length - 1; i++) {
-  //         intersection = new Set([...intersection].filter(x => setsOfItems[i + 1].has(x)))
-  //     }
-  //     return Array.from(intersection);
-  // }
+
+  let [categoryFilter, setCategoryFilter] = useStateWithCallback("All", ()=>{
+    filterizedData();
+  })
+  let [priceFilter, setPriceFilter] = useState({min: 0, max: 2000})
+  let [brandsFilter, setBrandsFilter] = useState(new Set())
+  let [arrange, setArrange] = useStateWithCallback("", ()=>{
+    filterizedData();
+  })
 
   //Filtering By Price
   const [value, setValue] = useState([0, 2000]);
@@ -49,29 +48,46 @@ function Products() {
     getPrice(newValue[0], newValue[1]);
   };
 
+  let filterizedData = function(){
+    let tempData = [];
+    for(let item of prodcts){
+      tempData.push(item);
+    }
+    if(categoryFilter !== "All"){
+      tempData = tempData.filter(item => item.category == categoryFilter);
+    }
+    tempData = tempData.filter(item => item.price >= priceFilter.min && item.price <= priceFilter.max)
+    if (brandsFilter.size != 0){
+      tempData = tempData.filter(item => brandsFilter.has(item.brand));
+    }
+
+    if(arrange != ""){
+      if (arrange == "Ascending"){
+        tempData = tempData.sort((a,b) => {
+          return a.rating - b.rating;
+        })
+      } else if (arrange == "Descending"){
+        tempData = tempData.sort((a,b) => {
+          return b.rating - a.rating;
+        })
+      }
+    }
+    setfilter(tempData)
+  }
+
   const getPrice = (start, end) => {
-    setfilter(prodcts);
-    const updateList = prodcts.filter((x) => {
-      return x.price <= end && x.price >= start;
-    });
-    // updateList.map((p) => {
-    //     return p.id
-    // }
-    // )
-    setfilter(updateList);
-    setprice(updateList);
-    price_bool = true;
-    console.log(updateList);
+    setPriceFilter({...priceFilter, min:start, max:end});
+    console.log(priceFilter)
+    filterizedData();
+    console.log(filter)
   };
 
   //Filtering By Brand
   const getBrand = (brand) => {
-    setfilter(prodcts);
-    const updateList = prodcts.filter((x) => {
-      return x.brand === brand;
-    });
-    setfilter(updateList);
-    setbrand(updateList);
+    brandsFilter.has(brand)? brandsFilter.delete(brand) : brandsFilter.add(brand);
+    setBrandsFilter(brandsFilter);
+    console.log(brandsFilter)
+    filterizedData()
   };
   const handleOnChange = (b) => {
     //    if (!ch) {
@@ -81,50 +97,14 @@ function Products() {
   };
 
   //Filtering By Category
-  let ShowAll = true;
   const filterProduct = (catItem) => {
-    setfilter(prodcts);
-    if (catItem != "All") {
-      const updateList = prodcts.filter((x) => {
-        return x.category === catItem;
-      });
-      setfilter(updateList);
-      setcategory(updateList);
-      category_bool = true;
-      //  console.log(filter)
-    }
+    console.log(catItem)
+    setCategoryFilter(catItem);
+    console.log(categoryFilter);
+    
+    // filterizedData();
   };
 
-  //Filtering By Rating
-  //Sort Descinding
-  const Descending = () => {
-    setfilter(prodcts);
-    const updateList = prodcts.sort((a, b) => {
-      return b.rating - a.rating;
-    });
-    setfilter(updateList);
-    console.log(filter);
-    console.log(updateList);
-  };
-  //Sort Ascending
-  const Ascending = () => {
-    setfilter(prodcts);
-    const updateList = prodcts.sort((a, b) => {
-      return a.rating - b.rating;
-    });
-    setfilter(updateList);
-    console.log(filter);
-  };
-  //Filtering By Rating
-  const getrate = (rate) => {
-    setfilter(prodcts);
-    const updateList = prodcts.filter((x) => {
-      return x.rating <= rate;
-    });
-    setfilter(updateList);
-    setrate(updateList);
-    rate_bool = true;
-  };
 
   //Fetch Data
   function fetchData() {
@@ -132,28 +112,29 @@ function Products() {
       .get("https://dummyjson.com/products")
       .then((prodData) => {
         setprodcts(prodData.data.products);
-        console.log(prodData.data.products);
-        if (ShowAll) {
-          setfilter(prodData.data.products);
+        setfilter(prodData.data.products);
+        // console.log(prodData.data.products);
+        // if (ShowAll) {
+          
 
-          ShowAll = false;
-        }
-        if (price_bool) {
-          price.map((x) => result.push(x));
-          //  result.push(price)
-        }
-        if (rate_bool) {
-          rate.map((x) => result.push(x));
-          // result.push(rate)
-        }
-        if (brand_bool) {
-          brand.map((x) => result.push(x));
-          //  result.push(brand)
-        }
-        if (category_bool) {
-          category.map((x) => result.push(x));
-          //  result.push(category)
-        }
+        //   ShowAll = false;
+        // }
+        // if (price_bool) {
+        //   price.map((x) => result.push(x));
+        //   //  result.push(price)
+        // }
+        // if (rate_bool) {
+        //   rate.map((x) => result.push(x));
+        //   // result.push(rate)
+        // }
+        // if (brand_bool) {
+        //   brand.map((x) => result.push(x));
+        //   //  result.push(brand)
+        // }
+        // if (category_bool) {
+        //   category.map((x) => result.push(x));
+        //   //  result.push(category)
+        // }
       })
       .catch((err) => {
         console.log(err);
@@ -251,7 +232,7 @@ function Products() {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown>
+                {/* <Dropdown>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Rating
                   </Dropdown.Toggle>
@@ -278,7 +259,7 @@ function Products() {
                       5
                     </Dropdown.Item>
                   </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
               </div>
             </div>
 
@@ -495,7 +476,10 @@ function Products() {
                       name="group1"
                       type={type}
                       id={`default-${type}-1`}
-                      onClick={() => Ascending()}
+                      onClick={() => {
+                        setArrange("Ascending")
+                        // filterizedData()
+                      }}
                     />
                     <Form.Check
                       className="sorting"
@@ -503,7 +487,9 @@ function Products() {
                       name="group1"
                       type={type}
                       id={`default-${type}-2`}
-                      onClick={() => Descending()}
+                      onClick={() => {
+                        setArrange("Descending")
+                      }}
                     />
                   </div>
                 ))}

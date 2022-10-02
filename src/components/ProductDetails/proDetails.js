@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 import { FaHeart } from 'react-icons/fa';
 import "./prodDetails.css";
+import { style } from "@mui/system";
 
 function ProdDetails(){
 
@@ -72,8 +73,10 @@ function ProdDetails(){
           </ol>
         </div>
      <div className="container">
-      <div class="wrapper ">
-        <div class="main_card d-flex align-items-center">
+      {/* <div class="wrapper ">
+        
+      </div> */}
+      {/* <div class="main_card d-flex flex-column flex-md-row align-items-center">
         <div class="card_right">
             <div class="img_container">
               <img 
@@ -109,8 +112,26 @@ function ProdDetails(){
           </div>
           </div>
           </div>
+        </div> */}
+
+        <div className="container d-flex align-items-center justify-content-center mt-3">
+          <div className="bg-colorful w-90 p-5 d-flex flex-column flex-md-row align-items-center gap-5">
+            <img src={product.thumbnail} width="350" height="350"/>
+            <div className="d-flex flex-column">
+              <p className="text-light" style={{fontSize:"2.2em"}}>{product.title}</p>
+              <p className="text-light" style={{fontSize:"1.7em"}}>{product.price}$</p>
+              <div class="prate">
+                {rate(product.rating)}
+              </div>
+              <div className="d-flex gap-2">
+                <button style={{width: "200px"}} onClick={()=>dispatch(addToCart(product))}>Add To Carts</button>
+                <button class="btn1" onClick={()=>dispatch(addToFav(product))}>
+                  <FaHeart/>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
       <hr></hr>
       <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one" role="tab" aria-controls="nav-one" aria-selected="true">Description</a>

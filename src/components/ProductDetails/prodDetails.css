@@ -5,6 +5,9 @@
 	align-items:center;
 }
 
+.bg-colorful{
+	background-color: #ff2020 !important ;
+}
 .header a{ 
 	color:black;
 	align-items:center;text-align: center;

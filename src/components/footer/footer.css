@@ -60,7 +60,7 @@ form {
     font-weight: 500;
 }
 a, button {
-    color: #fff;
+    /* color: #fff; */
     outline: medium none;
 }
 a {
