@@ -1,3 +1,10 @@
+export default function setCheckout(checkout){
+  return{
+      type: 'SET_Checkout',
+      payload: checkout
+  }
+}
+
 export function addToFav(fav) {
   return {
     type: "SET_Favourite",

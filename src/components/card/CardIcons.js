@@ -3,7 +3,7 @@ import "./CardIcons.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import initialState from "../../store/reducer";
-import { addToFav } from "../../store/action";
+import { addToFav, addToCart } from "../../store/action";
 
 export default function CardIcons(props) {
   const dispatch = useDispatch();
@@ -13,7 +13,11 @@ export default function CardIcons(props) {
 
   return (
     <div className="card-icons">
-      <button className="btn-cart">
+      <button className="btn-cart" onClick={() => {
+          dispatch(addToCart(props.product));
+          console.log("clicked");
+          console.log(props.product);
+        }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -1,0 +1,116 @@
+.top-title{
+    background-color: #f3ead8;
+}
+
+.top-title span a{
+    text-decoration: none;
+}
+
+.top-title p,th{
+    font-weight: 400;
+}
+th{
+    font-size: 0.9em;
+}
+
+
+tbody tr td:nth-child(1){
+    position: relative;
+}
+
+tbody tr,tfoot tr:nth-child(1){
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr td{
+    padding: 30px 10px !important;
+    vertical-align: middle;
+}
+
+tbody tr td:nth-child(1)::after{
+    content: "";
+    width: 2px;
+    height: 20%;
+    background-color: #eee;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.bordered{
+    width: fit-content;
+    border: 1px solid #eee;
+}
+
+.bordered button{
+    background-color: transparent;
+    font-size: 1.1em;
+    outline: none;
+    border: 1px solid #eee;
+}
+
+.titled{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.del{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #555;
+    padding-left: 15px;
+    transition: all 0.25s ease-in-out;
+}
+.del:hover{
+    color: #ff2020;
+}
+
+.down button, .navigate{
+    width: 200px !important;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background-color: #ff2020 !important ;
+    color: white;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.down button:hover, .navigate:hover{
+    background-color: #dc1c1c !important;
+    color: white;
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+    #no-more-tables tbody, #no-more-tables tr, #no-more-tables td{
+        display: block !important;
+        width: 100%;
+    } 
+    #no-more-tables thead tr{
+        position: absolute !important;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #no-more-tables tbody tr td:nth-child(1)::after{
+        top: 35px;
+    }
+
+    #no-more-tables td{
+        position: relative !important;
+        padding-left: 30% !important;
+    }
+    #no-more-tables td::before{
+        content: attr(data-title);
+        position: absolute;
+        left: 10px;
+    }
+}
+
